@@ -1,13 +1,11 @@
 import React, { memo } from 'react';
 import { View, StyleSheet } from 'react-native';
 
-interface onBoardingProps {
+interface OnBoardingProps {
 
 }
 
-const onBoarding = memo(({
-
-}: onBoardingProps) => {
+const OnBoarding = memo(({}: OnBoardingProps) => {
     return (
         <View style={styles.container}>
             
@@ -24,4 +22,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default onBoarding;
+export default OnBoarding;
