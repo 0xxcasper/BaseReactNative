@@ -14,7 +14,7 @@
     "target": "esnext",
     "baseUrl": "./src",
     "rootDirs": [
-      "./src/routes",
+      // "./src/routes",
   ],
 
   },

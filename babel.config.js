@@ -6,7 +6,7 @@ module.exports = {
           "root": ["./src"],
           "alias": {
             "routes": "./src/routes",
-            "navigation": ".src/navigation"
+            "navigation": "./src/navigation"
           }
       }]
   ],
