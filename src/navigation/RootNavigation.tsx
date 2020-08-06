@@ -1,7 +1,7 @@
 import React, { memo }          from 'react';
-import MainAppNavigation        from './MainAppNavigation';
 import { StackNavigator }       from 'navigation';
-import { NAVIGATION_MAIN_APP }  from './routeNames';
+import MainAppNavigation from './MainAppNavigation';
+import { NAVIGATION_MAIN_APP } from 'routeNames';
 
 export default memo((props) => {
     /**

@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useState } from 'react';
 import OpacityButton, { OpacityButtonProps } from 'widgets/button/OpacityButton';
+import ExampleDialog from './ExampleDialog';
 
 export interface ExamplePickerProps extends OpacityButtonProps {
     multiple?: boolean,
@@ -35,11 +36,11 @@ const ExamplePicker = memo((props: ExamplePickerProps) => {
             onPress={_onPress}
         />
         <ExampleDialog
-            visible={visible}
-            multiple={multiple}
-            selections={selections}
-            onDismiss={_onDismiss}
-            onSelect={_onSelect}
+            // visible={visible}
+            // multiple={multiple}
+            // selections={selections}
+            // onDismiss={_onDismiss}
+            // onSelect={_onSelect}
         />
     </>)
 });

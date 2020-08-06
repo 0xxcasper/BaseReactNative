@@ -13,10 +13,10 @@
     "strict": true,
     "target": "esnext",
     "baseUrl": "./src",
-    "paths": {
-      "routeName/*": [".src/navigation/routeNames/*"],
-    },
   },
+  "files": [
+    "routeNames.tsx",
+  ],
   "exclude": [
     "node_modules",
     "babel.config.js",

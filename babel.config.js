@@ -8,7 +8,8 @@ module.exports = {
             "routes": "./src/routes",
             "navigation": "./src/navigation",
             "routeNames": "./src/navigation/routeNames",
-            "components": "./src/components"
+            "components": "./src/components",
+            "common": "./src/commons",
           }
       }]
   ],
