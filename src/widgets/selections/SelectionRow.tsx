@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {StyleSheet, View,} from 'react-native';
-import GradientButton, {GradientButtonProps} from "../base_button/GradientButton";
-import {MARGIN_H} from "../../common/dimens";
-import VectorIcon, {GradientVectorIcon} from "../vector_icons/VectorIcon";
-import { ICON_NAME } from '../../common/icon_name';
-import { RED_NOTIFY } from '../../common/colors';
+import { ICON_NAME } from 'common/icon_name';
+import { RED } from 'common/colors';
+import GradientButton, { GradientButtonProps } from 'widgets/button/GradientButton';
+import VectorIcon from 'widgets/vector_icons/VectorIcon';
+import { MARGIN_H } from 'common/dimens';
 
 export interface SelectionRowProps {
     style?: any,
@@ -32,7 +32,7 @@ const SelectionRow = memo(({
     if (isSelected) {
         _checkIcon = (<VectorIcon
             name={ICON_NAME.ICON_CHECK_CIRCLE_FILL}
-            color={RED_NOTIFY}
+            color={RED}
             size={checkIconSize}
         />)
     }

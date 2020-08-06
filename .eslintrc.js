@@ -75,5 +75,5 @@ module.exports = {
       "camelcase": 2,
       "prefer-destructuring": 2
     }
-  };
+  }
 };

@@ -1,7 +1,7 @@
-import React, { memo }          from 'react';
-import { StackNavigator }       from 'navigation';
+import React, { memo } from 'react';
+import { StackNavigator } from 'navigation';
 import MainAppNavigation from './MainAppNavigation';
-import { NAVIGATION_MAIN_APP } from 'routeNames';
+import { NAVIGATION_MAIN_APP } from './routeNames';
 
 export default memo((props) => {
     /**
@@ -12,7 +12,7 @@ export default memo((props) => {
     return (
         <StackNavigator.Navigator
             headerMode={'none'}>
-             <StackNavigator.Screen
+            <StackNavigator.Screen
                 name={NAVIGATION_MAIN_APP}
                 component={MainAppNavigation}
             />

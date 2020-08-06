@@ -1,8 +1,8 @@
 import React, {memo, useCallback, useMemo} from "react";
 import {FlatList, ScrollViewProps, StyleSheet, Text} from 'react-native';
 import {Set} from 'immutable';
+import { fontStyles, FontNormal } from "common/styles";
 import SelectionRow from "./SelectionRow";
-import {fontStyles, FontNormal} from "../../common/styles";
 
 interface LabelRowItemProps {
     style?: any,

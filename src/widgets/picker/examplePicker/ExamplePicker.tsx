@@ -5,8 +5,6 @@ import ExampleDialog from './ExampleDialog';
 export interface ExamplePickerProps extends OpacityButtonProps {
     multiple?: boolean,
     selections: string[] | null | undefined,
-    onPress: () => {},
-    onLongPress: () => {},
     onSelect: (selections: string[] | null | undefined) => void,
 }
 
@@ -36,11 +34,11 @@ const ExamplePicker = memo((props: ExamplePickerProps) => {
             onPress={_onPress}
         />
         <ExampleDialog
-            // visible={visible}
-            // multiple={multiple}
-            // selections={selections}
-            // onDismiss={_onDismiss}
-            // onSelect={_onSelect}
+            visible={visible}
+            multiple={multiple}
+            selections={selections}
+            onDismiss={_onDismiss}
+            onSelect={_onSelect}
         />
     </>)
 });

@@ -1,22 +1,23 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "allowJs": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "isolatedModules": true,
-    "jsx": "react",
     "lib": [
       "es6"
     ],
-    "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
     "target": "esnext",
     "baseUrl": "./src",
+    "paths": {
+      "@assets/*": [ "assets/*"],
+      // "@widgets/*": [ "./src/widgets/*"],
+    },
   },
-  "files": [
-    "routeNames.tsx",
-  ],
   "exclude": [
     "node_modules",
     "babel.config.js",

@@ -1,12 +1,11 @@
 import {createContext, useContext} from 'react';
-// import {AlertOptions} from "../widgets/dialog/AlertDialog";
+import {AlertOptions} from "widgets/dialog/AlertDialog";
 
 export type AppContextType = {
     width: number,
     height: number,
     setLoading: (loading: boolean, timeout?: number) => void,
-    // showAlert: (option: AlertOptions) => () => void,
-    showAlert: (option: any) => () => void,
+    showAlert: (option: AlertOptions) => () => void,
 }
 export const AppContext = createContext<AppContextType>({
     width: 0,
@@ -27,8 +26,7 @@ export const useAppContext = () => {
 export const useSetLoading = (): ((loading: boolean, timeout?: number) => void) => {
     return useAppContext().setLoading;
 };
-//change
-export const useShowAlert = (): (option: any) => () => void => {
+export const useShowAlert = (): (option: AlertOptions) => () => void => {
     return useAppContext().showAlert;
 };
 export const useWidth = (): number => {

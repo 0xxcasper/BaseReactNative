@@ -1,5 +1,5 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: ['module:metro-react-native-babel-preset', "@babel/preset-typescript"],
   "plugins": [
       ["module-resolver", {
           "cwd": "babelrc",
@@ -7,10 +7,12 @@ module.exports = {
           "alias": {
             "routes": "./src/routes",
             "navigation": "./src/navigation",
-            "routeNames": "./src/navigation/routeNames",
             "components": "./src/components",
             "common": "./src/commons",
           }
+      }], 
+      ["@babel/preset-typescript", {
+          "allExtensions": true
       }]
   ],
   "env": {
