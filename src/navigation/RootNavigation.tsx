@@ -1,32 +1,21 @@
-import React, { memo } from 'react';
-// import { NAVIGATION_MAIN_APP } from './routeNames';
-// import MainAppNavigation from './MainAppNavigation';
-import { View } from 'react-native';
-import { StackNavigator } from 'navigation';
-import { NAVIGATION_MAIN_APP } from './routeNames';
-import OnBoarding from 'routes/onboarding/Onboarding';
-
+import React, { memo }          from 'react';
+import MainAppNavigation        from './MainAppNavigation';
+import { StackNavigator }       from 'navigation';
+import { NAVIGATION_MAIN_APP }  from './routeNames';
 
 export default memo((props) => {
+    /**
+    |--------------------------------------------------
+    | Handle login, logout => main navigator below here
+    |--------------------------------------------------
+    */
     return (
         <StackNavigator.Navigator
             headerMode={'none'}>
              <StackNavigator.Screen
                 name={NAVIGATION_MAIN_APP}
-                component={OnBoarding}
+                component={MainAppNavigation}
             />
         </StackNavigator.Navigator>
-        // <StackNavigator.Navigator
-        //     headerMode={'none'}>
-        //     <StackNavigator.Screen
-        //         name={NAVIGATION_MAIN_APP}
-        //         component={MainAppNavigation}
-        //     />
-        // </StackNavigator.Navigator>
-        // <View style={{
-        //     width: "100%",
-        //     height: "100%",
-        //     backgroundColor: "red"
-        // }} />
     );
 })

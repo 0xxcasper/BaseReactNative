@@ -13,10 +13,9 @@
     "strict": true,
     "target": "esnext",
     "baseUrl": "./src",
-    "rootDirs": [
-      // "./src/routes",
-  ],
-
+    "paths": {
+      "routeName/*": [".src/navigation/routeNames/*"],
+    },
   },
   "exclude": [
     "node_modules",

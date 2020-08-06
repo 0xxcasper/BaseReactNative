@@ -1,15 +1,20 @@
 import React, { memo } from 'react';
-import { DrawerNavigator, StackNavigator } from "./index";
-import { ROUTE_HOME } from "./routeNames";
-import OnBoarding from 'routes/onboarding/Onboarding';
+import { StackNavigator } from "./index";
+import { NAVIGATION_BOTTOM_TAB } from './routeNames';
+import BottomTabNavigation from './BottomTabNavigation';
 
+/**
+|--------------------------------------------------
+| Connect to the Bottom Tab Navigator
+|--------------------------------------------------
+*/
 export default memo((props) => {
     return (
         <StackNavigator.Navigator
             headerMode={'none'}>
             <StackNavigator.Screen
-                name={ROUTE_HOME}
-                component={OnBoarding}
+                name={NAVIGATION_BOTTOM_TAB}
+                component={BottomTabNavigation}
                 options={{
                     headerShown: false,
                 }}
