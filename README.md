@@ -1,2 +1,2 @@
 # LegencyMakeBySNX
-## Base Project Writtent by Typescript 
+## Base Project Written by Typescript
