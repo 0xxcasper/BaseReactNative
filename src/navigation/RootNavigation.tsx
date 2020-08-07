@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
-import { StackNavigator } from 'navigation';
-import MainAppNavigation from './MainAppNavigation';
 import { NAVIGATION_MAIN_APP } from './routeNames';
+import MainAppNavigation from "./MainAppNavigation";
+import {StackNavigator} from "./index";
+import {View} from "react-native";
 
 export default memo((props) => {
     /**
@@ -10,12 +11,17 @@ export default memo((props) => {
     |--------------------------------------------------
     */
     return (
-        <StackNavigator.Navigator
-            headerMode={'none'}>
-            <StackNavigator.Screen
-                name={NAVIGATION_MAIN_APP}
-                component={MainAppNavigation}
-            />
-        </StackNavigator.Navigator>
+        // <StackNavigator.Navigator
+        //     headerMode={'none'}>
+        //     <StackNavigator.Screen
+        //         name={NAVIGATION_MAIN_APP}
+        //         component={MainAppNavigation}
+        //     />
+        // </StackNavigator.Navigator>
+        <View style={{
+            width: "100%",
+            height: "100%",
+            backgroundColor: "red"
+        }}/>
     );
 })

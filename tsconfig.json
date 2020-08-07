@@ -1,27 +1,50 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-native",
     "allowJs": true,
-    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "common/*": ["./src/common/*"],
+      "widgets/*": ["./src/widgets/*"],
+      "components/*": ["./src/components/*"],
+      "actionTypes/*": ["./src/actionTypes/*"],
+      "actions/*": ["./src/actions/*"],
+      "assets/*": ["./src/assets/*"],
+      "network/*": ["./src/network/*"],
+      "reducers/*": ["./src/reducers/*"],
+      "views/*": ["./src/views/*"],
+      "main/*": ["./src/main/*"],
+      "modules/*": ["./src/views/modules/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "i18n/*": ["./src/i18n/*"],
+      "contexts/*": ["./src/contexts/*"],
+      "routes/*": ["./src/routes/*"],
+      "saga/*": ["./src/saga/*"],
+      "selectors/*": ["./src/selectors/*"],
+      "types/*": ["./src/types/*"],
+      "helpers": ["./src/helpers.ts"],
+      "navigation/*": ["./src/navigation/*"],
+      "redux/*": ["./src/redux/*"]
+    },
     "lib": [
       "es6"
     ],
+    "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext",
-    "baseUrl": "./src",
-    "paths": {
-      "@assets/*": [ "assets/*"],
-      // "@widgets/*": [ "./src/widgets/*"],
-    },
+    "target": "esnext"
   },
   "exclude": [
     "node_modules",
     "babel.config.js",
     "metro.config.js",
     "jest.config.js"
-  ]
+  ],
+  "include": ["src/**/*"]
 }
