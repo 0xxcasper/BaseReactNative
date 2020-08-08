@@ -4,5 +4,5 @@
 Search and remove all contents include
 
 ```bash
-SangNX-Make-Test
+SangNX-make-test
 ```
