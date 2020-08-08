@@ -5,8 +5,21 @@ import {
 import { CBErrorType } from "./errors";
 
 export interface AllState {
+    /*life circle your app*/
     appState: AppStateType,
+
+    /*Authentication of client
+    *Device token | FCM token | token | refresh token
+    **/
     authState: AuthStateType,
+
+    /*
+    * storage user info
+    * userName | phoneNumber | email....
+    * */
+    accountState: AccountStateType,
+
+    /*storage home state*/
     homeState: HomeStateType,
 }
 
@@ -30,32 +43,25 @@ export interface DevicePermission {
 
 export interface AppStateType {
     currentAppState: string | null | undefined,
-    fcmToken: string | null | undefined,
-    devicePermissionMap: Map<string, DevicePermission>,
-    location: LocationInfo | null | undefined,
+    devicePermissionMap?: Map<string, DevicePermission>,
     lastBackgroundTime: number,
     lastForegroundTime: number,
     installTime: number,
-    /**
-     * emailAnonymous
-     * get notification list, 
-     * login with device token will get this, 
-     * just login with device token when first time open App
-     */
-    emailAnonymous: string | null | undefined,
     applicationBadge: number | null | undefined,
     isLoading: boolean
 }
 
 export interface AuthStateType {
     authenticated: boolean,
+    fcmToken: string | null | undefined,
     phoneNumber: string | null | undefined,
-    otp: string | null | undefined,
     userName: string | null | undefined,
     token: string | null | undefined,
-    firebaseDocId?: string | null | undefined,
     status: AuthStatus | null | undefined,
     refreshToken: string | null | undefined,
+}
+
+export interface AccountStateType {
 }
 
 export interface HomeStateType {}
