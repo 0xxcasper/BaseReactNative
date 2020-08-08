@@ -4,9 +4,9 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
+//    "composite": true,
+//    "declaration": true,
+//    "declarationMap": true,
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
@@ -29,8 +29,8 @@
       "selectors/*": ["./src/selectors/*"],
       "types/*": ["./src/types/*"],
       "helpers": ["./src/helpers.ts"],
-      "navigation/*": ["./src/navigation/*"],
-      "redux/*": ["./src/redux/*"]
+      "redux/*": ["./src/redux/*"],
+      "navigation/*": ["./src/navigation/*"]
     },
     "lib": [
       "es6"
