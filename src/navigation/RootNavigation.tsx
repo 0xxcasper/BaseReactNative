@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, {memo} from 'react';
 import MainAppNavigation from "navigation/MainAppNavigation";
 import {StackNavigator} from "navigation/index";
 import {NAVIGATION_MAIN_APP} from "navigation/routeNames";
@@ -12,7 +12,7 @@ import {NAVIGATION_MAIN_APP} from "navigation/routeNames";
  |--------------------------------------------------
  */
 
-export default memo((props) => {
+export default memo(() => {
     return (
         <StackNavigator.Navigator
             headerMode={'none'}>

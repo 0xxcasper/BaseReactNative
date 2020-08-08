@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import { LayoutAnimation } from 'react-native';
-import AppConfig from "react-native-config";
 import _const from "./common/const";
 import utils from './common/utils';
 import labels from './i18n/labels';
@@ -110,8 +109,8 @@ export const isOverTimeFetch = (lastTime: number, cacheType: number): boolean =>
 
 export const AuthXKeys = () => {
     return {
-        "X-AUTH-ID": AppConfig.ID_VALUE,
-        "X-AUTH-SECRET": AppConfig.SECRET_VALUE
+        // "X-AUTH-ID": AppConfig.ID_VALUE,
+        // "X-AUTH-SECRET": AppConfig.SECRET_VALUE
     }
 };
 

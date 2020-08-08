@@ -251,7 +251,7 @@ export const commonStyles = StyleSheet.create({
     }
 });
 export const fontStyles = StyleSheet.create({
-    muliStyle: {
+    multiStyle: {
         fontSize: 15,
         lineHeight: 19,
         ...FontNormal

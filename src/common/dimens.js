@@ -1,7 +1,5 @@
-import _const from "./const";
-import utils from "./utils";
 import { StatusBar } from "react-native";
-
+import utils from "common/utils";
 export const NAVIGATION_BAR_PADDING_H = 8;
 export const NAVIGATION_BUTTON_ICON_SIZE = 24;
 export const NAVIGATION_BUTTON_ICON_MARGIN_RIGHT = 8;

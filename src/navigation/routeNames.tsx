@@ -6,6 +6,12 @@ export const NAVIGATION_LOGIN               = 'NAVIGATION_LOGIN';
 export const NAVIGATION_MAIN_APP            = 'NAVIGATION_MAIN_APP';
 export const NAVIGATION_BOTTOM_TAB          = 'NAVIGATION_BOTTOM_TAB';
 export const NAVIGATION_TAB_HOME            = 'NAVIGATION_TAB_HOME';
+export const NAVIGATION_TAB_USER            = 'NAVIGATION_TAB_USER';
+
+/**
+* DRAWER
+*/
+export const DRAWER_NAVIGATOR               = 'DRAWER_NAVIGATOR';
 
 /**
  * Screen name

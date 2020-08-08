@@ -1,34 +1,17 @@
-import React, { memo, useCallback } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { ROUTE_HOME } from 'navigation/routeNames';
-import ExamplePicker from 'widgets/picker/examplePicker/ExamplePicker';
-import OpacityButton from 'widgets/button/OpacityButton';
+import React, {memo} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import OpacityButton from "widgets/button/OpacityButton";
 
 interface HomeRouteProps {
 
 }
-
 const HomeRoute = memo(({}: HomeRouteProps) => {
-
-    const _onPress = useCallback(() => {
-            
-    },[])
-
-    const _onSelect = useCallback(() => {
-            
-    },[])
-
     return (
         <View style={styles.container}>
-            {/* <ExamplePicker
-                selections={null}
-                onPress={_onPress}
-                onSelect={_onSelect}>
-                <View>
-                    <Text>{ROUTE_HOME}</Text>
-                </View>
-            </ExamplePicker> */}
-            <OpacityButton/>
+            <OpacityButton
+                style={styles.buttonStyle}>
+                <Text style={styles.labelStyle}>HOME</Text>
+            </OpacityButton>
         </View>
     );
 })
@@ -39,8 +22,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
-        opacity: 0.5
     },
+    buttonStyle: {
+        width: 140,
+        height: 60,
+        backgroundColor: "white",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 8
+    },
+    labelStyle: {
+        fontSize: 18,
+        fontWeight: "bold"
+    }
 });
 
 export default HomeRoute;
