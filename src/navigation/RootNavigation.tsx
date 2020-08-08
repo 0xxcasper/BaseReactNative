@@ -1,27 +1,25 @@
 import React, { memo } from 'react';
-import { NAVIGATION_MAIN_APP } from './routeNames';
-import MainAppNavigation from "./MainAppNavigation";
-import {StackNavigator} from "./index";
-import {View} from "react-native";
+import MainAppNavigation from "navigation/MainAppNavigation";
+import {StackNavigator} from "navigation/index";
+import {NAVIGATION_MAIN_APP} from "navigation/routeNames";
+
+/**
+ |--------------------------------------------------
+ | login, logout, if login success push to main app
+ | handle all flow below here
+ | MainAppNavigation contain app content
+ | add more LoginNavigation && IntroduceNavigation
+ |--------------------------------------------------
+ */
 
 export default memo((props) => {
-    /**
-    |--------------------------------------------------
-    | Handle login, logout => main navigator below here
-    |--------------------------------------------------
-    */
     return (
-        // <StackNavigator.Navigator
-        //     headerMode={'none'}>
-        //     <StackNavigator.Screen
-        //         name={NAVIGATION_MAIN_APP}
-        //         component={MainAppNavigation}
-        //     />
-        // </StackNavigator.Navigator>
-        <View style={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: "red"
-        }}/>
+        <StackNavigator.Navigator
+            headerMode={'none'}>
+            <StackNavigator.Screen
+                name={NAVIGATION_MAIN_APP}
+                component={MainAppNavigation}
+            />
+        </StackNavigator.Navigator>
     );
 })

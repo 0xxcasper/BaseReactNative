@@ -3,8 +3,9 @@ module.exports = {
     "plugins": [
         ["module-resolver", {
             "cwd": "babelrc",
-            "root": ["./src"],
-            "alias": {
+            root: ["./src"],
+            extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
+            alias: {
                 "actionTypes": "./src/actionTypes",
                 "actions": "./src/actions",
                 "assets": "./src/assets",

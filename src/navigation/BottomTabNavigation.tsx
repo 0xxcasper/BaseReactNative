@@ -1,14 +1,11 @@
 import React, { memo } from "react";
-
-// import { TabNavigator, StackNavigator } from 'navigation';
-
+import {
+    ROUTE_HOME,
+    ROUTE_USER
+} from "navigation/routeNames";
+import {TabNavigator, StackNavigator} from "navigation/index";
 import HomeRoute from 'routes/homeRoute/HomeRoute';
 import UserRoute from 'routes/userRoute/UserRoute';
-// import BottomTabBar from "components/bottomTabBar/BottomTabBar";
-import {TabNavigator, StackNavigator} from "navigation/index";
-import {BottomTabBar} from "@react-navigation/bottom-tabs";
-import {View} from "react-native";
-import {ROUTE_HOME, ROUTE_USER} from "navigation/routeNames";
 
 export default memo((props) => {
     return (
