@@ -1,4 +1,4 @@
-import {AppState} from 'react-native';
+import {Alert, AppState} from 'react-native';
 import {eventChannel} from 'redux-saga';
 import {all, fork, put, take} from 'redux-saga/effects';
 import {createAction} from "actions";

@@ -1,10 +1,9 @@
-import { selectCurrentAppState } from './../selectors/appSelectors';
+import { selectCurrentAppState } from 'selectors/appSelectors';
 import { useSelector } from "react-redux";
-import { selectFcmToken, selectAppBadge, selectAppLoading } from '../selectors/appSelectors';
-
-export const useFcmToken = () => {
-    return useSelector(selectFcmToken);
-}
+import {
+    selectAppBadge,
+    selectAppLoading
+} from 'selectors/appSelectors';
 
 export const useAppNumberBadge = () => {
     return useSelector(selectAppBadge);

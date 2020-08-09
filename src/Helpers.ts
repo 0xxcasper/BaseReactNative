@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { LayoutAnimation } from 'react-native';
+import {LayoutAnimation} from 'react-native';
 import _const from "./common/const";
 import utils from './common/utils';
 import labels from './i18n/labels';
@@ -33,7 +33,10 @@ export const toVnNoSign = (vietnameseText: string | null | undefined): string | 
     return vietnameseText;
 };
 
-export const filterSearch = (_collections: any, field: string | null | undefined, searchingText: string | null | undefined): any => {
+export const filterSearch = (
+    _collections: any,
+    field: string | null | undefined,
+    searchingText: string | null | undefined): any => {
     const _MATCH_FULL = 1000000;
     const _MATCH_START = 100000;
     if (!_collections) return []
@@ -70,7 +73,10 @@ export const filterSearch = (_collections: any, field: string | null | undefined
         return false;
     });
 };
-export const sortCollections = (_collections: any, field: string | null | undefined, ascending = true): any => {
+export const sortCollections = (
+    _collections: any,
+    field: string | null | undefined,
+    ascending = true): any => {
     if (_collections && field) {
         return _collections.sort((l: any, r: any) => {
             if (l[field] > r[field]) {
@@ -98,7 +104,7 @@ export const setLastTimeFetch = (key: string): any => {
 export const getLastTimeFetch = (key: string) => {
     return utils.getValueByKey(key).then((result) => {
         return result ? result : 0
-    }).catch((error) => {
+    }).catch((error: any) => {
         return 0
     })
 };
@@ -119,12 +125,11 @@ export const scaleSize = (size: number, optional: any = {
 }) => {
     const { screenScale } = optional
     const ratio = size / screenScale;
-    const newSize = Math.round(ratio * _const.WIDTH_SCREEN);
-    return newSize;
+    return Math.round(ratio * _const.WIDTH_SCREEN);
 };
 
 export const capitalize = (str: string | null | undefined, lower: boolean = false): string => {
-    if (!str) return labels.empty;
+    if (!str) return '';
     return (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
 };
 

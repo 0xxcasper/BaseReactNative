@@ -8,6 +8,7 @@ import {
     SetAppLoading,
 } from "actionTypes/appActionTypes";
 import {APP_STATE_ACTIVE, APP_STATE_BACKGROUND} from "common/const";
+import {Alert} from "react-native";
 
 const _initState: AppStateType = {
     currentAppState: undefined,
