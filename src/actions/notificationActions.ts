@@ -10,6 +10,10 @@ import {
 } from 'actionTypes/notificationActionTypes';
 import {Notification} from "types/modelTypes";
 
+/*
+* Call if you want get all list notification
+* Example: tap to button BELL => go to notification screen
+* */
 export const requestNotificationListAction = (
     resolve: () => void,
     reject: (error?: CBErrorType | null | undefined) => void
@@ -21,6 +25,9 @@ export const requestNotificationListAction = (
     }
 };
 
+/*
+* Receive list notification
+* */
 export const receiveNotificationListAction = (listNotify: Notification[]): NotificationActionTypes => {
     return {
         type: RECEIVE_NOTIFICATION_LIST,
@@ -28,6 +35,9 @@ export const receiveNotificationListAction = (listNotify: Notification[]): Notif
     }
 }
 
+/*
+* Get detail a notification
+* */
 export const requestNotificationDetailAction = (
     notifyId: number,
     resolve: () => void,
@@ -41,6 +51,9 @@ export const requestNotificationDetailAction = (
     }
 }
 
+/*
+* Get Detail notification success
+* */
 export const receiveNotificationDetailAction = (notification: Notification[]): NotificationActionTypes => {
     return {
         type: RECEIVE_NOTIFICATION_DETAIL,
@@ -48,12 +61,22 @@ export const receiveNotificationDetailAction = (notification: Notification[]): N
     }
 }
 
+/*
+* If user in notification screen and tap back
+* call this action clear all notification list
+* when you go to notification screen again
+* call requestNotificationDetailAction
+* */
 export const clearNotificationListAction = (): NotificationActionTypes => {
     return {
         type: CLEAR_NOTIFICATION_LIST,
     }
 }
 
+/*
+* If you want clear notification Detail Model
+* call this action
+* */
 export const clearNotificationDetailAction = (): NotificationActionTypes => {
     return {
         type: CLEAR_NOTIFICATION_DETAIL

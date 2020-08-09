@@ -1,5 +1,15 @@
 import { Dimensions } from "react-native";
 
+
+/**
+ |--------------------------------------------------
+ | Watch App State
+ |--------------------------------------------------
+ */
+export const APP_STATE_ACTIVE       = 'active';
+export const APP_STATE_INACTIVE     = 'inactive';
+export const APP_STATE_BACKGROUND   = 'background';
+
 /**
 |--------------------------------------------------
 | Timer value

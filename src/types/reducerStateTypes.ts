@@ -21,8 +21,12 @@ export interface AllState {
     * */
     accountState: AccountStateType,
 
+    /*Notification State*/
+    notificationState: NotificationStateType,
+
     /*Storage home state*/
     homeState: HomeStateType,
+
 }
 
 export interface DataStatus {
@@ -48,16 +52,10 @@ export interface AppStateType {
     isLoading: boolean
 }
 
-export interface AuthStateType {
-    authenticated: boolean,
-    phoneNumber: string | null | undefined,
-    userName: string | null | undefined,
-    token: string | null | undefined,
-    status: AuthStatus | null | undefined,
-    refreshToken: string | null | undefined,
-}
+export interface AuthStateType {}
 
-export interface AccountStateType {
-}
+export interface AccountStateType {}
 
 export interface HomeStateType {}
+
+export interface NotificationStateType {}

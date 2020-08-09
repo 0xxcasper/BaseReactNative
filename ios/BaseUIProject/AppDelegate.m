@@ -23,6 +23,8 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
+static UIBackgroundTaskIdentifier bgTask;
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -30,7 +32,7 @@ static void InitializeFlipper(UIApplication *application) {
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
-
+  bgTask = UIBackgroundTaskInvalid;
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"carbro"
@@ -44,6 +46,22 @@ static void InitializeFlipper(UIApplication *application) {
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application{
+  if (bgTask == UIBackgroundTaskInvalid) {
+    bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+      [application endBackgroundTask:bgTask];
+      bgTask = UIBackgroundTaskInvalid;
+    }];
+  }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+  if (bgTask != UIBackgroundTaskInvalid) {
+    [application endBackgroundTask:bgTask];
+    bgTask = UIBackgroundTaskInvalid;
+  }
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
