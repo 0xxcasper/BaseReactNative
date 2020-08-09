@@ -1,25 +1,27 @@
 import { Map } from 'immutable'
-import {
-    AuthStatus,
-} from "./modelTypes";
-import { CBErrorType } from "./errors";
+import {AuthStatus} from "types/modelTypes";
+import {CBErrorType} from "types/errors";
 
 export interface AllState {
-    /*life circle your app*/
+    /*
+    * Life circle your app
+    * Device token | FCM token |
+    */
     appState: AppStateType,
 
-    /*Authentication of client
-    *Device token | FCM token | token | refresh token
+    /*
+    * Authentication of client
+    * token | refresh token | isLogin
     **/
     authState: AuthStateType,
 
     /*
-    * storage user info
+    * Storage user info
     * userName | phoneNumber | email....
     * */
     accountState: AccountStateType,
 
-    /*storage home state*/
+    /*Storage home state*/
     homeState: HomeStateType,
 }
 
@@ -29,12 +31,6 @@ export interface DataStatus {
     updateTime?: number,
 }
 
-export interface LocationInfo {
-    latitude: number | null | undefined,
-    longitude: number | null | undefined,
-    lastUpdateTime: number,
-}
-
 export interface DevicePermission {
     type: string,
     status: string,
@@ -42,6 +38,7 @@ export interface DevicePermission {
 }
 
 export interface AppStateType {
+    fcmToken: string | null | undefined,
     currentAppState: string | null | undefined,
     devicePermissionMap?: Map<string, DevicePermission>,
     lastBackgroundTime: number,
@@ -53,7 +50,6 @@ export interface AppStateType {
 
 export interface AuthStateType {
     authenticated: boolean,
-    fcmToken: string | null | undefined,
     phoneNumber: string | null | undefined,
     userName: string | null | undefined,
     token: string | null | undefined,

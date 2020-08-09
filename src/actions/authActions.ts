@@ -1,147 +1,55 @@
-import { CBErrorType } from 'types/errors';
-import { LogoutAction, LogoutSuccessAction, REQUEST_REGISTER_PHONE_NUMBER, REQUEST_CHECK_OTP, REQUEST_UPDATE_USER_NAME, UPDATE_USER_NAME_OK, REQUEST_GET_USER_PROFILE } from 'actionTypes/authActionTypes';
 import {
-    AUTH_OK,
     AuthActionTypes,
-    AuthOkAction,
-    CHANGE_AUTH_OTP,
-    CHANGE_AUTH_PHONE_NUMBER,
-    CHANGE_AUTH_USER_NAME,
-    CLEAR_AUTH_OTP,
-    DELETE_AUTH_OTP,
-    LoginWithPhoneAction,
-    REQUEST_AUTH,
-    REQUEST_AUTH_OTP,
-    SUBMIT_OTP,
-    REQUEST_LOGOUT,
-    LOGOUT_SUCCESS
-} from "actionTypes/authActionTypes";
-import { AuthResult } from "types/modelTypes";
+    AUTH_OK,
+    REQUEST_LOGIN,
+    AUTH_ERROR,
+    REQUEST_LOGOUT, CLEAR_AUTH_STORAGE,
+} from 'actionTypes/authActionTypes';
+import {AuthResult} from "types/modelTypes";
+import {CBErrorType} from "types/errors";
 
-export function loginWithPhoneNumber(
-    phoneNumber: string,
-    platform: string,
-    resolve: (message: string, isHaveFullName: boolean) => void,
-    reject: (error?: CBErrorType | null | undefined) => void
-): LoginWithPhoneAction {
+/*
+* Login action here
+* params: { phoneNumber | email | deviceToken}
+* */
+export const requestLoginAction = (params: any | null | undefined): AuthActionTypes => {
     return {
-        type: REQUEST_AUTH,
-        phoneNumber,
-        platform: platform,
-        resolve,
-        reject,
+        type: REQUEST_LOGIN,
+        params
     }
 }
 
-export function logout(platform: string, fcmToken: string, resolve: (message: string) => void, reject: (error?: CBErrorType | null | undefined) => void): LogoutAction {
-    return {
-        type: REQUEST_LOGOUT,
-        platform: platform,
-        fcmToken: fcmToken,
-        resolve,
-        reject,
-    }
-}
-
-export function logoutSuccess(): LogoutSuccessAction {
-    return {
-        type: LOGOUT_SUCCESS,
-    }
-}
-
-export function authOk(result: AuthResult): AuthOkAction {
+/* Login success storage accessToken | refreshToken */
+export const authOkAction = (result: AuthResult): AuthActionTypes => {
     return {
         type: AUTH_OK,
         result: result
     }
 }
 
-export function changeAuthPhoneNumber(phoneNumber: string | null | undefined): AuthActionTypes {
+/* Handle event login fail */
+export const authErrorAction = (error: CBErrorType): AuthActionTypes => {
     return {
-        type: CHANGE_AUTH_PHONE_NUMBER,
-        phoneNumber: phoneNumber
+        type: AUTH_ERROR,
+        error
     }
 }
 
-export function changeAuthOtp(otp: string | null | undefined): AuthActionTypes {
+/* Request Logout action*/
+export const requestLogoutAction = (params: any | null | undefined): AuthActionTypes => {
     return {
-        type: CHANGE_AUTH_OTP,
-        otp: otp
+        type: REQUEST_LOGOUT,
+        params
     }
 }
 
-export function deleteAuthOtp(): AuthActionTypes {
+/*
+* When logout success this action
+* Clear auth storage accessToken | refreshToken | fireBaseDocId
+* */
+export const clearAuthStorageAction = (): AuthActionTypes => {
     return {
-        type: DELETE_AUTH_OTP,
+        type: CLEAR_AUTH_STORAGE,
     }
 }
 
-export function clearAuthOtp(): AuthActionTypes {
-    return {
-        type: CLEAR_AUTH_OTP,
-    }
-}
-
-export function changeAuthUserName(userName: string | null | undefined): AuthActionTypes {
-    return {
-        type: CHANGE_AUTH_USER_NAME,
-        userName: userName
-    }
-}
-
-export function requestAuthOtp(): AuthActionTypes {
-    return {
-        type: REQUEST_AUTH_OTP
-    }
-}
-
-export function submitAuthOtp(): AuthActionTypes {
-    return {
-        type: SUBMIT_OTP
-    }
-}
-
-export function requestRegisterPhoneNumber(phoneNumber: string, resolve: (message: string) => void, reject: (error?: CBErrorType | null | undefined) => void): AuthActionTypes {
-    return {
-        type: REQUEST_REGISTER_PHONE_NUMBER,
-        phoneNumber: phoneNumber,
-        resolve,
-        reject,
-    }
-}
-
-export function requestCheckOTP(otp: string, phoneNumber: string, platform: string, resolve: (message: string) => void, reject: (error?: CBErrorType | null | undefined) => void): AuthActionTypes {
-    return {
-        type: REQUEST_CHECK_OTP,
-        otp,
-        phoneNumber,
-        platform,
-        resolve,
-        reject,
-    }
-}
-
-export function requestUpdateUserName(userName: string, resolve: (message: string) => void, reject: (error?: CBErrorType | null | undefined) => void): AuthActionTypes {
-    return {
-        type: REQUEST_UPDATE_USER_NAME,
-        userName,
-        resolve,
-        reject,
-    }
-}
-
-export function updateUserNameOK(userName: string): AuthActionTypes {
-    return {
-        type: UPDATE_USER_NAME_OK,
-        userName,
-    }
-}
-
-export function getUserProfile(params: any | null | undefined, resolve: () => void, reject: (error?: CBErrorType | null | undefined) => void): AuthActionTypes {
-    return {
-        type: REQUEST_GET_USER_PROFILE,
-        params,
-        resolve,
-        reject,
-    }
-}

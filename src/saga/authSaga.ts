@@ -1,7 +1,7 @@
 import {all, put, select, take, takeLatest} from 'redux-saga/effects';
 import {createAction} from "../actions";
 import {updateAccountInfo as updateAccountInfoAction} from "../actions/accountActions";
-import {authOk as authOkAction, getUserProfile as getUserProfileAction, logoutSuccess} from "../actions/authActions";
+import {authOkAction, getUserProfile as getUserProfileAction, logoutSuccess} from "../actions/authActions";
 import {requestNotification as requestNotificationAction} from "../actions/notificationActions";
 import {REQUEST_ACCOUNT_INFO} from "actionTypes/accountActionTypes";
 import {

@@ -1,5 +1,24 @@
-import {AccountActionTypes, CLEAR_ACCOUNT_INFO, UPDATE_ACCOUNT_INFO} from 'actionTypes/accountActionTypes';
+import {
+    AccountActionTypes,
+    CLEAR_ACCOUNT_INFO,
+    REQUEST_ACCOUNT_INFO,
+    UPDATE_ACCOUNT_INFO
+} from 'actionTypes/accountActionTypes';
 import {AccountStateType} from "types/reducerStateTypes";
+
+/*
+* request Get Account Info
+* call when login success | user open app
+* */
+export const requestGetAccountInfoAction = (optional: any | null | undefined): AccountActionTypes => {
+    /*
+    * optional: { isLoading }
+    */
+    return {
+        type: REQUEST_ACCOUNT_INFO,
+        optional
+    }
+};
 
 /*
 * When login success call this action
@@ -12,6 +31,7 @@ export const updateAccountInfoAction = (accountInfo: AccountStateType): AccountA
         accountInfo: accountInfo
     }
 };
+
 
 /*
 * When logout success need to clear user

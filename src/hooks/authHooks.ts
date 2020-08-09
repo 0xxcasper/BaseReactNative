@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import _const from '../common/const';
+import _const from 'common/const';
 import {
     selectAuthError,
     selectAuthOtp,
@@ -8,11 +8,11 @@ import {
     selectAuthUserName,
     selectFirebaseDocId,
     selectIsAuthenticated
-} from "../selectors/authSelectors";
-import { CBErrorType } from "../types/errors";
-import { isBlank } from './../helpers';
-import { selectAccountLevel } from './../selectors/accountSelectors';
-import { selectDidShowIntroduce } from './../selectors/authSelectors';
+} from "selectors/authSelectors";
+import { CBErrorType } from "types/errors";
+import { isBlank } from 'Helpers';
+import { selectAccountLevel } from 'selectors/accountSelectors';
+import { selectDidShowIntroduce } from 'selectors/authSelectors';
 
 export const useAuthPhoneNumber = (): string | null | undefined => {
     return useSelector(selectAuthPhoneNumber);
@@ -37,10 +37,8 @@ export const useIsMemberShip = (): boolean => {
     const _firebaseDocId = useSelector(selectFirebaseDocId);
     const _isAuthenticated = useSelector(selectIsAuthenticated) && !isBlank(_firebaseDocId);
     const _level = useSelector(selectAccountLevel)
-    if(_isAuthenticated && _level && _level.toUpperCase() !== _const.NO_RANK.toUpperCase()) {
-        return true
-    }
-    return false
+    return !!(_isAuthenticated && _level && _level.toUpperCase() !== _const.NO_RANK.toUpperCase());
+
 };
 export const useDidShowIntroduce = (): boolean => {
     return useSelector(selectDidShowIntroduce)

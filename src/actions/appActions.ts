@@ -1,41 +1,44 @@
 import {
     AppActionTypes,
+    CHANGE_APP_STATE,
     CHANGE_FCM_TOKEN,
-    LOGIN_WITH_DEVICE_SUCCESS,
-    REQUEST_LOGIN_WITH_DEVICE_TOKEN,
     SET_APP_LOADING,
-    SET_NUMBER_APP_NOTIFICATION_BADGE
+    SET_NUMBER_NOTIFY_BADGE
 } from 'actionTypes/appActionTypes';
 
-export const changeFcmToken = (fcmToken: string | null | undefined): AppActionTypes => {
+/*
+* Update app state
+* ACTIVE | INACTIVE | BACKGROUND
+* */
+export const changeAppStateAction = (appState: string): AppActionTypes => {
+    return {
+        type: CHANGE_APP_STATE,
+        appState
+    }
+};
+
+/*
+* FCM token | device token receive for push notification
+* */
+export const changeFcmTokenAction = (fcmToken: string): AppActionTypes => {
     return {
         type: CHANGE_FCM_TOKEN,
-        fcmToken: fcmToken
+        fcmToken
     }
 };
 
-export const requestLoginWithDeviceToken = (fcmToken: string | null | undefined, platform: string | null | undefined): AppActionTypes => {
-    return {
-        type: REQUEST_LOGIN_WITH_DEVICE_TOKEN,
-        fcmToken: fcmToken,
-        platform: platform
-    }
-};
-
-export const loginWithDeviceTokenSuccess = (emailAnonymous: string | null | undefined): AppActionTypes => {
-    return {
-        type: LOGIN_WITH_DEVICE_SUCCESS,
-        emailAnonymous: emailAnonymous,
-    }
-};
-
+/* Number notification non read */
 export const setAppNotificationBadge = (numberBadge: number): AppActionTypes => {
     return {
-        type: SET_NUMBER_APP_NOTIFICATION_BADGE,
+        type: SET_NUMBER_NOTIFY_BADGE,
         numberBadge
     }
 };
 
+/*
+* This app using app context for loading because if use Loading
+* by Modal cant show another screen over Modal
+* */
 export const setAppLoadingAction = (isLoading: boolean): AppActionTypes => {
     return {
         type: SET_APP_LOADING,

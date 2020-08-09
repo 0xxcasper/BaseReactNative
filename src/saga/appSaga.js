@@ -4,13 +4,13 @@ import {AppState, Platform} from 'react-native';
 import {PERMISSIONS, requestMultiple, RESULTS} from 'react-native-permissions';
 import {eventChannel} from 'redux-saga';
 import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
-import {createAction} from "../actions";
+import {createAction} from "actions";
 import {
-    changeFcmToken as changeFcmTokenAction,
+    changeFcmTokenAction,
     loginWithDeviceTokenSuccess as loginWithDeviceTokenSuccessAction,
     onTapNotificationAlert,
     requestLoginWithDeviceToken as requestLoginWithDeviceTokenAction
-} from "../actions/appActions";
+} from "actions/appActions";
 import {receiveCurrentLocation} from 'actions/mapActions';
 import {push} from 'actions/navigationActions';
 import {requestNotification as requestNotificationAction} from "actions/notificationActions";
@@ -122,7 +122,7 @@ function* watchFcmToken() {
             },
             onNotification: function (notification) {
                 if (notification) {
-                    if (Platform.OS == 'ios' && notification.data.openedInForeground) {
+                    if (Platform.OS === 'ios' && notification.data.openedInForeground) {
                         notification.userInteraction = true;
                     }
                     _emitter({
@@ -164,21 +164,7 @@ function* watchFcmToken() {
                     }
                     if(userInteraction) {
                         yield put(push(ROUTE_NOTIFICATIONS))
-                        // if(Platform.OS === "ios") {
-                        //     if(notification.alert) {
-                        //         yield put(push(ROUTE_NOTIFICATION_DETAIL_HTML, {
-                        //             notificationId: notification.alert.notiId
-                        //         }))
-                        //     }
-                        // } else {
-                        //     const { notiId } = notification.data
-                        //     yield put(push(ROUTE_NOTIFICATION_DETAIL_HTML, {
-                        //         notificationId: notiId
-                        //     }))
-                        // }
-
                     }
-                    // yield put(push(ROUTE_NOTIFICATION_DETAIL_HTML))
                     yield put(requestNotificationAction(() => { }, () => { }))
                     yield put(onTapNotificationAlert(notification))
                     break;

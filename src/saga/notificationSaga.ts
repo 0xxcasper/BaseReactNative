@@ -8,12 +8,12 @@ import {
     requestNotificationUnLogin,
     requestSetMarkNotificationUnLogin,
     requestSetMarkNotificationLogin
-} from "../network/index";
+} from "network/index";
 import { receiveNotification, receiveNotificationDetail } from './../actions/notificationActions';
 import { REQUEST_NOTIFICATION, REQUEST_NOTIFICATION_DETAIL, REQUEST_NOTIFICATION_MARK_READ } from './../actionTypes/notificationActionTypes';
-import { isBlank, sortCollections } from './../helpers';
-import { selectEmailAnonymousToken } from './../selectors/appSelectors';
-import { selectFirebaseDocId, selectIsAuthenticated } from './../selectors/authSelectors';
+import { isBlank, sortCollections } from 'Helpers';
+import { selectEmailAnonymousToken } from 'selectors/appSelectors';
+import { selectFirebaseDocId, selectIsAuthenticated } from 'selectors/authSelectors';
 import { createAction } from '../actions';
 import moment from "moment"
 function* _requestNotification(action: any) {

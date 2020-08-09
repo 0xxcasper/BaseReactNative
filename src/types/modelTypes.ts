@@ -12,6 +12,9 @@ export interface AuthResult {
     refreshToken: string | null | undefined,
 }
 
+export interface Notification {
+}
+
 export interface EnumEntry {
     value: string,
     label: string,
