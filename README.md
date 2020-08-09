@@ -7,7 +7,7 @@ Search and remove all contents include
 SangNX-make-test
 ```
 
-Make your snippets in IntelliJ
+Make your snippet create new Route in IntelliJ
 
 ```bash
 import React, { memo } from 'react';
@@ -16,10 +16,11 @@ import { commonStyles } from "common/styles";
 import { APP_COLOR } from "common/colors";
 import { RouteList } from 'types/routeTypes';
 import { RouteProp } from '@react-navigation/native';
-/* type RouteProps = RouteProp<RouteList, ''>; */
 
 type $TM_FILENAME_BASE$Props = {
 }
+
+/* type RouteProps = RouteProp<RouteList, ''>; */
 
 const $TM_FILENAME_BASE$ = memo((props: $TM_FILENAME_BASE$Props): JSX.Element => {
    return (
