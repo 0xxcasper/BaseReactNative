@@ -132,8 +132,3 @@ export const capitalize = (str: string | null | undefined, lower: boolean = fals
     if (!str) return '';
     return (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
 };
-
-export const isValidEmailAddress = (address: string | null | undefined): boolean => {
-    if (!address) return false;
-    return !!address.match(/.+@.+/);
-}

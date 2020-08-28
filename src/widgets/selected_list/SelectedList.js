@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
-import OpacityButton from '../base_button/OpacityButton'
 import { FlatList } from 'react-native-gesture-handler'
 import { Map } from 'immutable'
+import OpacityButton from "widgets/button/OpacityButton";
 
 const SelectedList = memo(({
     data,

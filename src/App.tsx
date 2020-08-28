@@ -27,7 +27,8 @@ let reduxPersistStore;
 // @ts-ignore
 reduxStore.runSaga(rootSaga);
 const App = memo((props) => {
-    const [rerenderCounter, setRerenderCounter] = useState<number>(0);
+    const [rerenderCounter, setRerenderCounter]
+                                        = useState<number>(0);
     const _loadingRef                   = useRef<LoadingOverlayRef>(null);
     const navigationRef                 = useRef<NavigationContainerRef | null>(null);
     const [dehydrated, setDehydrated]   = useState(false);
