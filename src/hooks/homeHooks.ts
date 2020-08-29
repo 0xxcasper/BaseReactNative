@@ -1,6 +1,7 @@
 import {useSelector} from "react-redux";
-import {selectHomeState} from 'selectors/homeSelectors';
+import {selectHomeBanners} from 'selectors/homeSelectors';
+import {HomeBannerModel} from "types/modelTypes";
 
-export const useHomeState = () => {
-    return useSelector(selectHomeState)
-};
+export const useHomeBanners = (): HomeBannerModel[] => {
+    return useSelector(selectHomeBanners)
+}

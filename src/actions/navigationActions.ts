@@ -31,7 +31,7 @@ export function closeDrawerAction(): NavigationActionTypes {
     }
 }
 
-export function popAction(screen: string, params?: any): NavigationActionTypes {
+export function popAction(screen?: string, params?: any): NavigationActionTypes {
     return {
         type: POP,
         screen,

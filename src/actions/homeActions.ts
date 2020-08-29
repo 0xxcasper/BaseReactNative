@@ -1,12 +1,23 @@
-//---->SangNX-make-test
 import {
-    HomeActionTypes,
-    TEST_REQUEST_HOME_ACTION
+    HomeActionTypes, RECEIVE_HOME_BANNER,
+    REQUEST_HOME_BANNER
 } from 'actionTypes/homeActionTypes';
+import {CBErrorType} from "types/errors";
+import {HomeBannerModel} from "types/modelTypes";
 
-export const updateHomeBannerPopup = (): HomeActionTypes => {
+export const requestHomeBannerAction = (
+    resolve?: () => void,
+    reject?: (error?: CBErrorType | null | undefined) => void): HomeActionTypes => {
     return {
-        type: TEST_REQUEST_HOME_ACTION,
+        type: REQUEST_HOME_BANNER,
+        resolve,
+        reject
     }
 };
-//---->End
+
+export const receiveHomeBannerAction = (banners: HomeBannerModel[]) => {
+    return {
+        type: RECEIVE_HOME_BANNER,
+        banners
+    }
+}

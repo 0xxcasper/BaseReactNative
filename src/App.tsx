@@ -22,15 +22,24 @@ import RootNavigation from "navigation/RootNavigation";
 import {default as reduxStore, default as store} from 'redux/store';
 import rootSaga from './saga';
 import {setNavigationRef} from "saga/navigationSaga";
+import {AppContext, AppContextType} from "contexts/appContext";
+import {LayoutAnimationCompat, sortCollections} from "Helpers";
+import {AlertOptions, AlertPriority} from "widgets/dialog/AlertDialog";
+import {OrderedMap} from 'immutable';
 
 let reduxPersistStore;
 // @ts-ignore
 reduxStore.runSaga(rootSaga);
 const App = memo((props) => {
     const [rerenderCounter, setRerenderCounter]
-                                        = useState<number>(0);
-    const _loadingRef                   = useRef<LoadingOverlayRef>(null);
-    const navigationRef                 = useRef<NavigationContainerRef | null>(null);
+                        = useState<number>(0);
+    const _loadingRef   = useRef<LoadingOverlayRef>(null);
+    const navigationRef = useRef<NavigationContainerRef | null>(null);
+    const _variables    = useMemo(() => {
+        return {
+            alertStack: OrderedMap<string, AlertOptions>()
+        }
+    }, [])
     const [dehydrated, setDehydrated]   = useState(false);
     const [size, setSize]               = useState({
         width: 0,
@@ -71,6 +80,53 @@ const App = memo((props) => {
         }
     }, []);
 
+    const _showAlert = useCallback((option: AlertOptions) => {
+        LayoutAnimationCompat.easeInEaseOut();
+        if (option.priority == null) {
+            option = {
+                ...option,
+                priority: AlertPriority.NORMAL,
+            }
+        }
+        if (!option.id) {
+            option = {
+                ...option,
+                id: _.uniqueId('alert:'),
+            }
+        }
+        const _dismissAlert = () => {
+            if (_variables.alertStack.get(option.id || '')) {
+                LayoutAnimationCompat.easeInEaseOut();
+                _variables.alertStack = _variables.alertStack.delete(option.id || '');
+                setRerenderCounter((_currentValue) => _currentValue + 1);
+            }
+        }
+        if (!option.contentView) {
+            const {
+                title,
+                message,
+                buttons,
+                children
+            } = option
+            option = {
+                ...option,
+                contentView: (<View/>)
+            }
+        }
+        _variables.alertStack = sortCollections(_variables.alertStack.set(option.id || '', option), 'priority');
+        setRerenderCounter((_currentValue) => _currentValue + 1);
+        return _dismissAlert;
+    }, []);
+
+    const _appContextValue: AppContextType = useMemo(() => {
+        return {
+            setLoading: _onSetLoading,
+            showAlert: _showAlert,
+            width: size.width,
+            height: size.height,
+        }
+    }, [size, _onSetLoading]);
+
     //-----DONT Write hook below this line--------
     if (!dehydrated) {
         return (<View
@@ -81,11 +137,15 @@ const App = memo((props) => {
     return (
         <>
             <Provider store={store}>
-                <NavigationContainer
-                    ref={navigationRef}
+                <AppContext.Provider
+                    value={_appContextValue}
                 >
-                    <RootNavigation />
-                </NavigationContainer>
+                    <NavigationContainer
+                        ref={navigationRef}
+                    >
+                        <RootNavigation />
+                    </NavigationContainer>
+                </AppContext.Provider>
             </Provider>
             <LoadingOverlay
                 ref={_loadingRef}
@@ -130,9 +190,9 @@ const LoadingOverlay = forwardRef((
 
     if (!visible) return null;
     return (
-        <View style={[commonStyles.fillFullCenterAll, { backgroundColor: 'red' }]}>
+        <View style={[commonStyles.fillFullCenterAll]}>
             <ActivityIndicator
-                color={'white'}
+                color={'red'}
                 size={"large"}
             />
         </View>

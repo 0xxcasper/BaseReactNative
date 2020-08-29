@@ -93,10 +93,11 @@ export const DialogTitleHeader = memo((props: DialogTitleHeaderProps): JSX.Eleme
             style={styles.headerButtonContainer}
             onPress={onCloseButtonPress}
         >
-            <VectorIcon
+            {/*<VectorIcon
                 name={ICON_NAME.ICON_CLOSE_CIRCLE}
                 size={25}
-                color={'#D4D4D4'} />
+                color={'#D4D4D4'} />*/}
+            <View/>
         </OpacityButton>
     </View>);
 });

@@ -1,5 +1,5 @@
 import { Map } from 'immutable'
-import {AuthStatus} from "types/modelTypes";
+import {AuthStatus, HomeBannerModel} from "types/modelTypes";
 import {CBErrorType} from "types/errors";
 
 export interface AllState {
@@ -56,6 +56,8 @@ export interface AuthStateType {}
 
 export interface AccountStateType {}
 
-export interface HomeStateType {}
+export interface HomeStateType {
+    banners: HomeBannerModel[]
+}
 
 export interface NotificationStateType {}

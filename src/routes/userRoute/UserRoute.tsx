@@ -1,6 +1,8 @@
-import React, { memo } from 'react';
+import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import OpacityButton from "widgets/button/OpacityButton";
+import {useDispatch} from "react-redux";
+import {popAction} from "actions/navigationActions";
 
 interface UserRouteProps {
 
@@ -9,14 +11,18 @@ interface UserRouteProps {
 const UserRoute = memo(({
 
 }: UserRouteProps) => {
+
+    const dispatch = useDispatch()
+    const _onButtonPress = useCallback(() => {
+        dispatch(popAction())
+    }, [])
     return (
         <View style={styles.container}>
-            <View style={styles.container}>
-                <OpacityButton
-                    style={styles.buttonStyle}>
-                    <Text style={styles.labelStyle}>USER</Text>
-                </OpacityButton>
-            </View>
+            <OpacityButton
+                style={styles.buttonStyle}
+                onPress={_onButtonPress}>
+                <Text style={styles.labelStyle}>USER</Text>
+            </OpacityButton>
         </View>
     );
 })

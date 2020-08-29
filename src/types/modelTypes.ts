@@ -20,3 +20,9 @@ export interface EnumEntry {
     label: string,
     sortValue?: number,
 }
+
+export interface HomeBannerModel {
+    id: string;
+    image: string;
+    imageThumb: string;
+}

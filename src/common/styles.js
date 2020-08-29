@@ -1,5 +1,9 @@
 import {Platform, StyleSheet} from 'react-native';
-import {NAVIGATION_BAR_PADDING_H, NAVIGATION_BUTTON_ICON_MARGIN_RIGHT} from "./dimens";
+import {
+    NAVIGATION_BAR_PADDING_H,
+    NAVIGATION_BUTTON_ICON_MARGIN_RIGHT,
+    SAFE_AREA_BOTTOM_HEIGHT
+} from "./dimens";
 import {TEXT_BLACK_PRIMARY} from "./colors";
 
 export const FontNormalName = 'Roboto'
@@ -136,6 +140,18 @@ export const commonStyles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
+        paddingBottom: SAFE_AREA_BOTTOM_HEIGHT
+    },
+    fillFullSafeAreaBottomCenterAll: {
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        paddingBottom: SAFE_AREA_BOTTOM_HEIGHT,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     fillFullCenterAll: {
         position: 'absolute',

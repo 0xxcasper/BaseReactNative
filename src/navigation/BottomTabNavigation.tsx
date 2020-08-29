@@ -7,6 +7,7 @@ import TabUserNavigation from "navigation/TabUserNavigation";
 import {Platform, SafeAreaView, StyleSheet, Text} from "react-native";
 import {commonStyles, navigationStyles} from "common/styles";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {BOTTOM_TAB_HEIGHT} from "common/dimens";
 
 export default memo((props) => {
     return (
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     tabContainerStyle: {
         borderTopWidth: 0,
         alignItems: 'flex-start',
-        height: 57,
+        height: BOTTOM_TAB_HEIGHT,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         paddingBottom: 0,

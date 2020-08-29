@@ -30,11 +30,12 @@ const SelectionRow = memo(({
                            }: SelectionRowProps & GradientButtonProps) => {
     let _checkIcon;
     if (isSelected) {
-        _checkIcon = (<VectorIcon
+        /*_checkIcon = (<VectorIcon
             name={ICON_NAME.ICON_CHECK_CIRCLE_FILL}
             color={RED}
             size={checkIconSize}
-        />)
+        />)*/
+        _checkIcon = (<View/>)
     }
     return (<GradientButton
         style={[style, reverseRow ? styles.reverseContainer : styles.container]}

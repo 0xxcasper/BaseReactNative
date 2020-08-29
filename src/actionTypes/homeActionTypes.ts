@@ -1,11 +1,21 @@
+import {CBErrorType} from "types/errors";
+import {HomeBannerModel} from "types/modelTypes";
 const PREFIX = 'HOME_ACTION/';
 
-//---->SangNX-make-test
-export const TEST_REQUEST_HOME_ACTION = PREFIX + "TEST_REQUEST_HOME_ACTION";
+export const REQUEST_HOME_BANNER = PREFIX + "REQUEST_HOME_BANNER";
+export const RECEIVE_HOME_BANNER = PREFIX + "RECEIVE_HOME_BANNER";
 
-export interface TestRequestHomeAction {
-    type: typeof TEST_REQUEST_HOME_ACTION
+export interface RequestHomeBannerAction {
+    type: typeof REQUEST_HOME_BANNER,
+    resolve?: () => void,
+    reject?: (error?: CBErrorType | null | undefined) => void
 }
 
-export type HomeActionTypes = TestRequestHomeAction;
-//---->End
+export interface ReceiveHomeBannerAction {
+    type: typeof RECEIVE_HOME_BANNER,
+    banners: HomeBannerModel[]
+}
+
+export type HomeActionTypes =
+    RequestHomeBannerAction
+    | ReceiveHomeBannerAction;

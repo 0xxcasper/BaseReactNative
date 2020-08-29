@@ -7,7 +7,7 @@ export const PADDING_H = 15;
 export const PADDING_V = 20;
 export const MARGIN_V = 15;
 export const MARGIN_H = 15;
-export const BOTTOM_TAB_HEIGHT = 50;
+export const BOTTOM_TAB_HEIGHT = 57;
 
 export const STATUS_BAR_HEIGHT = Platform.select({
     ios: utils.isBunnyEarDevice() ? 44 : 20,
@@ -20,3 +20,5 @@ export const BOTTOM_BAR_HEIGHT = Platform.select({
     android: 0,
     default: 0
 })
+export const SAFE_AREA_BOTTOM_HEIGHT = BOTTOM_TAB_HEIGHT + BOTTOM_BAR_HEIGHT
+

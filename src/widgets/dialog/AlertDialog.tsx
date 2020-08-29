@@ -7,7 +7,7 @@ import Dialog, { DialogProps } from "./Dialog";
 import OpacityButton from 'widgets/button/OpacityButton';
 import GradientButton from 'widgets/button/GradientButton';
 import VectorIcon from 'widgets/vector_icons/VectorIcon';
-import { isBlank } from 'helpers';
+import { isBlank } from 'Helpers';
 
 export enum AlertDialogTypes {
   SUCCESS,
@@ -57,22 +57,7 @@ const AlertDialog = memo((props: AlertDialogProps) => {
     ...restProp
   } = props;
   let _iconView;
-  switch (type) {
-    case AlertDialogTypes.ERROR:
-      _iconView = <VectorIcon name={ICON_NAME.ICON_WARNING} size={30} color={'white'} />;
-      break;
-    case AlertDialogTypes.SUCCESS:
-      _iconView = <VectorIcon name={ICON_NAME.ICON_CHECK_CIRCLE_FILL} size={30} color={'white'} />;
-      break;
-    case AlertDialogTypes.INFO:
-      _iconView = <VectorIcon name={ICON_NAME.ICON_PLANE} size={30} color={'white'} />;
-      break;
-    case AlertDialogTypes.WARNING:
-      _iconView = <VectorIcon name={ICON_NAME.ICON_WARNING} size={30} color={'white'} />;
-      break;
-    default:
-      _iconView = <VectorIcon name={ICON_NAME.ICON_PLANE} size={30} color={'white'} />;
-  }
+  _iconView = <View/>;
   return (
     <Dialog
       {...restProp}

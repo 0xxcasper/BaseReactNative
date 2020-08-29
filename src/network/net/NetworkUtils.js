@@ -5,8 +5,8 @@ const X_AUTH = AuthXKeys()
 export default Object.freeze({
     get: function (header, url, body, callback, options = {}) {
         if (body != null) {
-            var esc = encodeURIComponent;
-            var query = Object.keys(body).map(k => esc(k) + "=" + body[k]).join("&");
+            const esc = encodeURIComponent;
+            const query = Object.keys(body).map(k => esc(k) + "=" + body[k]).join("&");
             url += "?" + query;
         }
         const { hideHeader } = options

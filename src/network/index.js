@@ -2,9 +2,13 @@ import EventEmitter from 'eventemitter3';
 import CONST from 'common/const';
 import ServerPath from './net/ServerPath';
 import store from "redux/store";
-
+import NetworkUtils from "network/net/NetworkUtils";
 
 export const networkEmitter = new EventEmitter();
+
+export const getHomeBannerApi = () => {
+    return requestApi(NetworkUtils.get, null, ServerPath.home_banner_api, null);
+}
 
 const requestApi = (api, header = {}, url, body, options = {}) => {
     const {
@@ -13,20 +17,7 @@ const requestApi = (api, header = {}, url, body, options = {}) => {
     } = options
     return new Promise((resolve, reject) => {
         const state = store.getState();
-        // const _fcmToken = selectFcmToken(state);
-        // const _accessToken = selectToken(state);
-        if (_accessToken) {
-            header = {
-                ...header,
-                // Authorization: `Bearer ${_accessToken}`,
-            };
-        }
-        if (_fcmToken) {
-            header = {
-                ...header,
-                "tracking-id": _fcmToken
-            };
-        }
+
         api(header, url, body, (status, response) => {
             console.log('METHOD', api.name);
             console.log('API: ', url);
