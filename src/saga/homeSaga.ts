@@ -6,7 +6,10 @@ import {HomeBuilder} from "Builders";
 
 function* _requestHomeBanner(resolve: any, reject: any) {
     try {
-        const _result = HomeBuilder.bannerFromApi(yield getHomeBannerApi());
+        const _result = HomeBuilder.bannerFromApi(yield getHomeBannerApi({
+            latest: true,
+            page: 1
+        }));
         yield put(receiveHomeBannerAction(_result))
         resolve && resolve()
     } catch (e) {

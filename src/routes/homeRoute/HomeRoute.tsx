@@ -34,8 +34,6 @@ const HomeRoute = memo(({}: HomeRouteProps) => {
     }, [])
 
     const _renderHomeBanner = useCallback(({ item }) => {
-        console.log('_homeBanners', item.imageThumb)
-
         return(
             <Image
                 style={{ width: 200, height: 100 }}

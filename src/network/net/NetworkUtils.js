@@ -1,6 +1,7 @@
 import CONST from "common/const";
 import { AuthXKeys } from "Helpers";
 const X_AUTH = AuthXKeys()
+const axios = require('axios');
 
 export default Object.freeze({
     get: function (header, url, body, callback, options = {}) {
@@ -21,18 +22,15 @@ export default Object.freeze({
                 ...header
             }
         }
-        fetch(url, {
-            method: "GET",
+        axios.get(url, {
             headers: _header,
-            body: null
         })
-            .then(response => response.json())
-            .then(responseJson => {
-                callback(CONST.SUCCESS, responseJson);
+            .then(function (response) {
+                callback(CONST.SUCCESS, response);
             })
-            .catch(error => {
+            .catch(function (error) {
                 callback(CONST.FAILURE, error);
-            });
+            })
     },
     post: function (header, url, body, callback, options = {}) {
         const { hideHeader } = options

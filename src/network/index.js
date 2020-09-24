@@ -6,8 +6,8 @@ import NetworkUtils from "network/net/NetworkUtils";
 
 export const networkEmitter = new EventEmitter();
 
-export const getHomeBannerApi = () => {
-    return requestApi(NetworkUtils.get, null, ServerPath.home_banner_api, null);
+export const getHomeBannerApi = (body) => {
+    return requestApi(NetworkUtils.get, null, ServerPath.home_banner_api, body);
 }
 
 const requestApi = (api, header = {}, url, body, options = {}) => {
